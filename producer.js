@@ -51,7 +51,11 @@ var intervalId = setInterval( function() {
     var query = generator.getQuery(); // Generate query string
 
     // Generate request to consumer
-    generator.sendRequest( query, function( data ) {
+    generator.sendRequest( query, function( err, data ) {
+        if ( err ) {
+            console.error( err.message );
+            throw err;
+        }
         console.log( new Date + ' ANSWER: ' + query + data );
     });
 
