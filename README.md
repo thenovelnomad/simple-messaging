@@ -51,9 +51,9 @@ Tests use [mocha](http://mochajs.org/), [super-test](https://github.com/visionme
 
 ### UML Diagrams
 
-[Activity Diagram](https://drive.google.com/file/d/0B1hbYzUU-UW8eFQwUkNzdklZcE0/view?usp=sharing)
+[Activity Diagram](https://www.dropbox.com/s/9h85f70fesd3zhe/Consumer%20Activity%20Diagram.png)
 
-[Sequence Diagram](https://drive.google.com/file/d/0B1hbYzUU-UW8LXNTWnNZUklpVzA/view?usp=sharing)
+[Sequence Diagram](https://www.dropbox.com/s/6lh0187n5y5b6kv/Consumer%20Sequence%20Diagram.png)
 
 
 
