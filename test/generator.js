@@ -24,7 +24,15 @@ describe( 'Generator', function() {
 
     describe( 'sendRequest', function() {
         it( 'should send an HTTP get request' );
+
         it( 'should log the response body' );
-        it( 'should log errors if received' );
+
+        it( 'should log errors if received', function(done) {
+            assert.throws( function() {
+                generator.sendRequest( function(data) {
+                    done();
+                });
+            });
+        });
     });
 });
