@@ -41,15 +41,19 @@ The consumer will return the solution of the addition statement to the producer.
 
 ### Tests
 
+Tests use [mocha](http://mochajs.org/), [super-test](https://github.com/visionmedia/supertest), and [sinon]()
+
 1. cd to the repo directory.
 
-2. Run `npm install` if you have not previously.
+2. Run `npm install` to install dependencies if you have not previously.
 
 3. Run `npm test`.
 
-### Activity Diagram
+### UML Diagrams
 
-![Simple Messaging Activity Diagram](https://drive.google.com/file/d/0B1hbYzUU-UW8WjYxUVFWVVRvZTQ/view?usp=sharing)
+[Activity Diagram](https://drive.google.com/file/d/0B1hbYzUU-UW8eFQwUkNzdklZcE0/view?usp=sharing)
+
+[Sequence Diagram](https://drive.google.com/file/d/0B1hbYzUU-UW8LXNTWnNZUklpVzA/view?usp=sharing)
 
 
 
