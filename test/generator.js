@@ -1,5 +1,7 @@
 var assert = require( 'assert' ),
-    request = require( 'supertest' ),
+    sinon = require( 'sinon' ),
+    PassThrough = require( 'stream' ).PassThrough,
+    http = require( 'http' ),
     generator = require( '../lib/generator' );
 
 describe( 'Generator', function() {
@@ -23,15 +25,49 @@ describe( 'Generator', function() {
     });
 
     describe( 'sendRequest', function() {
-        it( 'should send an HTTP get request' );
+        beforeEach(function() {
+            this.get = sinon.stub(http, 'get');
+        });
 
-        it( 'should log the response body' );
+        afterEach(function() {
+            http.get.restore();
+        });
 
-        it( 'should log errors if received', function(done) {
-            assert.throws( function() {
-                generator.sendRequest( function(data) {
-                    done();
+        describe( 'request is successful', function() {
+            it( 'should execute a callback on response data', function() {
+                var expected = 'hello';
+                var response = new PassThrough();
+
+                response.write( expected );
+                response.end();
+
+                response.on( 'data', function( chunk ) {
+                    // console.log(chunk);
                 });
+
+                var get = new PassThrough();
+
+                this.get.callsArgWith( 1, response )
+                            .returns( get );
+
+                generator.sendRequest(function( err, data ) {
+                    assert.equals( data, expected );
+                });
+            });
+        });
+        describe( 'request errors', function() {
+            it( 'should call callback with error as first arg', function() {
+                var expected = new Error( 'test' );
+
+                var get = new PassThrough();
+
+                this.get.returns( get );
+
+                generator.sendRequest( function( err, data ) {
+                    assert.equal( err, expected );
+                });
+
+                get.emit( 'error', expected );
             });
         });
     });
