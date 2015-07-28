@@ -13,6 +13,12 @@ describe( 'Consumer', function() {
         });
     });
 
+    describe( 'GET a non-existent path', function() {
+        it('should respond with a 404 status code', function(done) {
+            request( app ).get( '/books' ).expect( 404, done );
+        });
+    });
+
     describe( 'GET /?12+5=', function() {
         it('should respond with a 200 status code', function(done) {
             request( app ).get( '/' ).query({'12+5': ''}).expect( 200, done );
