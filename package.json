@@ -1,7 +1,7 @@
 {
-  "name": "producer_consumer",
+  "name": "simple-messaging",
   "version": "0.0.0",
-  "description": "",
+  "description": "a simple messaging system made up of a consumer and producers.",
   "main": "consumer.js",
   "scripts": {
     "consumer": "node consumer.js",
